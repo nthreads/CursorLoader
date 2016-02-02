@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.idea/runConfigurations.xml
+.idea/misc.xml
+.idea/.name
+.idea/encodings.xml
+.idea/vcs.xml
+.idea/copyright/profiles_settings.xml
+.idea/gradle.xml
+.idea/compiler.xml
+.idea/modules.xml

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/ivContactPhoto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/avatar_jen" />
+
+    <TextView
+        android:id="@+id/tvContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivContactPhoto"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/ivContactPhoto"
+        android:layout_toRightOf="@+id/ivContactPhoto"
+        android:text="Jenny Li"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvContactNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvContactName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/ivContactPhoto"
+        android:layout_toRightOf="@+id/ivContactPhoto"
+        android:text="(123) 456-7890"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>
