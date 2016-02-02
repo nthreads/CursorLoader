@@ -1,28 +1,51 @@
-package com.nthreads.cursorloader.business;
+package com.nthreads.cursorloader;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
-/**
- * Package Name : com.nthreads.cursorloader.business
- * Created by Muhammad Nauman Zubair on 2/2/2016 5:08 PM
- * Copyright (c) 2016 Alpha Squared. All rights reserved.
- */
+import com.nthreads.cursorloader.business.DbHelper;
+
 public class DoctorProvider extends ContentProvider {
+    public DoctorProvider() {
+    }
 
     private static final String PROVIDER_NAME = "com.nthreads.cursorloader.business.DoctorProvider";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/doctors" );
+
+    private DbHelper dbHelper;
+
+    /** Constants to identify the requested operation */
+    private static final int DOCTORS = 1;
+    private static final UriMatcher uriMatcher ;
+    static {
+        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        uriMatcher.addURI(PROVIDER_NAME, "doctors", DOCTORS);
+    }
+
     @Override
     public boolean onCreate() {
-        return false;
+        dbHelper = new DbHelper(getContext());
+        dbHelper.open();
+
+        return true;
     }
 
     @Nullable
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        return null;
+        if(uriMatcher.match(uri) == DOCTORS){
+
+            Cursor cursor = dbHelper.getAllContacts();
+
+
+            return cursor;
+        }else{
+            return null;
+        }
     }
 
     @Nullable

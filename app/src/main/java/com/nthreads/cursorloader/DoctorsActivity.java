@@ -50,7 +50,7 @@ public class DoctorsActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Uri CONTACT_URI = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+        Uri CONTACT_URI = DoctorProvider.CONTENT_URI;
         return new CursorLoader(this, CONTACT_URI, null, null, null, null);
     }
 
